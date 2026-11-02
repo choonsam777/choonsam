@@ -4,30 +4,57 @@ import { join } from 'node:path'
 
 const root = new URL('../', import.meta.url)
 const repo = 'https://raw.githubusercontent.com/choonsam777/choonsam/main'
+const githubRepo = 'choonsam777/choonsam'
 const server = JSON.parse(await readFile(new URL('server.json', root), 'utf8'))
 const modsDir = new URL('mods/', root)
 const names = (await readdir(modsDir)).filter(name => name.toLowerCase().endsWith('.jar')).sort()
 const seen = new Set()
 const mods = []
-for (const name of names) {
+function addMod(name, size, md5, url) {
   if (!/^[\w.+-]+\.jar$/i.test(name)) throw new Error(`모드 파일 이름에는 영문, 숫자, 점, 밑줄, 하이픈만 사용하세요: ${name}`)
   const slug = name.slice(0, -4).toLowerCase().replace(/[^a-z0-9_-]/g, '-')
   if (seen.has(slug)) throw new Error(`모드 이름이 중복됩니다: ${name}`)
   seen.add(slug)
-  const bytes = await readFile(new URL(`mods/${name}`, root))
-  const md5 = createHash('md5').update(bytes).digest('hex')
   mods.push({
     id: `choonsam.mods:${slug}:${md5.slice(0, 12)}`,
     name,
     type: 'FabricMod',
     required: { value: true },
-    artifact: {
-      size: bytes.length,
-      MD5: md5,
-      path: name,
-      url: `${repo}/mods/${encodeURIComponent(name)}?v=${md5}`
-    }
+    artifact: { size, MD5: md5, path: name, url }
   })
+}
+for (const name of names) {
+  const bytes = await readFile(new URL(`mods/${name}`, root))
+  const md5 = createHash('md5').update(bytes).digest('hex')
+  addMod(name, bytes.length, md5, `${repo}/mods/${encodeURIComponent(name)}?v=${md5}`)
+}
+
+// GitHub's repository file limit is 100 MiB. Larger mods live in a dedicated release.
+const headers = {
+  Accept: 'application/vnd.github+json',
+  'User-Agent': 'ChunsamVillageLauncher',
+  ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {})
+}
+const releasesResponse = await fetch(`https://api.github.com/repos/${githubRepo}/releases?per_page=100`, { headers })
+if (!releasesResponse.ok) throw new Error(`GitHub 릴리스 조회 실패: HTTP ${releasesResponse.status}`)
+const releases = await releasesResponse.json()
+const largeRelease = releases
+  .filter(release => !release.draft && release.tag_name.startsWith('chunsam-mods-'))
+  .sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at))[0]
+if (largeRelease) {
+  for (const asset of largeRelease.assets.filter(asset => asset.name.toLowerCase().endsWith('.jar')).sort((a, b) => a.name.localeCompare(b.name))) {
+    const response = await fetch(asset.browser_download_url, { headers: { 'User-Agent': 'ChunsamVillageLauncher' } })
+    if (!response.ok || !response.body) throw new Error(`큰 모드 다운로드 실패: ${asset.name} (HTTP ${response.status})`)
+    const hash = createHash('md5')
+    let size = 0
+    for await (const chunk of response.body) {
+      hash.update(chunk)
+      size += chunk.length
+    }
+    if (size !== asset.size) throw new Error(`큰 모드 크기 불일치: ${asset.name}`)
+    const md5 = hash.digest('hex')
+    addMod(asset.name, size, md5, `${asset.browser_download_url}?v=${md5}`)
+  }
 }
 
 const distribution = {
