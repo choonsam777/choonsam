@@ -234,6 +234,20 @@
             "path": "whisper-client-1.0.0.jar",
             "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/whisper-client-1.0.0.jar?v=f01a280099f856ac333a0a863425f01f"
           }
+        },
+        {
+          "id": "choonsam.mods:festive-inventory-1-0-40:5906edb03dae",
+          "name": "festive-inventory-1.0.40.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 113016511,
+            "MD5": "5906edb03daed1c59db28202ee7effb8",
+            "path": "festive-inventory-1.0.40.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/chunsam-mods-1/festive-inventory-1.0.40.jar?v=5906edb03daed1c59db28202ee7effb8"
+          }
         }
       ]
     }
