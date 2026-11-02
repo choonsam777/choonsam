@@ -11,6 +11,10 @@ on:
     types: [published]
 permissions:
   contents: write
+concurrency:
+  group: chunsam-launcher-distribution
+  cancel-in-progress: false
+  queue: max
 jobs:
   update:
     runs-on: ubuntu-latest
