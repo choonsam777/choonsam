@@ -1,0 +1,31 @@
+name: Update launcher distribution
+on:
+  push:
+    paths:
+      - 'mods/**'
+      - 'server.json'
+      - 'scripts/generate-distribution.mjs'
+      - 'fabric/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/generate-distribution.mjs
+      - name: Publish generated manifest
+        run: |
+          if ! git diff --quiet -- distribution.json; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add distribution.json
+            git commit -m 'Update launcher mod list'
+            git push
+          fi
