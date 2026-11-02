@@ -54,6 +54,10 @@ async function main() {
     discordGet(`/channels/${channelId}/messages?limit=50`, token)
   ])
   if (!Array.isArray(messages)) throw new Error('Discord 메시지 응답 형식이 올바르지 않습니다.')
+  if (messages.length === 0) {
+    console.log('공지 채널에 메시지가 없습니다. 기존 공지를 유지합니다.')
+    return
+  }
   const notices = messagesToNotices(messages, channel.guild_id, channelId)
   if (messages.length > 0 && notices.length === 0) {
     throw new Error('공지 내용을 읽지 못했습니다. 봇의 Message Content Intent와 채널 읽기 권한을 확인하세요.')
