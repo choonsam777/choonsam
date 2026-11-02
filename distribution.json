@@ -38,6 +38,48 @@
               }
             }
           ]
+        },
+        {
+          "id": "choonsam.mods:cloth-config-fabric-26-3-159:ad876761ca3b",
+          "name": "cloth-config-fabric-26.3.159.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1135009,
+            "MD5": "ad876761ca3b7ace3b026bc901dd493e",
+            "path": "cloth-config-fabric-26.3.159.jar",
+            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/cloth-config-fabric-26.3.159.jar?v=ad876761ca3b7ace3b026bc901dd493e"
+          }
+        },
+        {
+          "id": "choonsam.mods:fabric-api-0-165-0-26-3:8181fce1be2e",
+          "name": "fabric-api-0.165.0+26.3.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1778588,
+            "MD5": "8181fce1be2e6ad90f8c09f9a7db1467",
+            "path": "fabric-api-0.165.0+26.3.jar",
+            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/fabric-api-0.165.0%2B26.3.jar?v=8181fce1be2e6ad90f8c09f9a7db1467"
+          }
+        },
+        {
+          "id": "choonsam.mods:ferritecore-9-0-0-fabric:9d96f643cfd2",
+          "name": "ferritecore-9.0.0-fabric.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 72677,
+            "MD5": "9d96f643cfd220b75f47c94ea56ebc2a",
+            "path": "ferritecore-9.0.0-fabric.jar",
+            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/ferritecore-9.0.0-fabric.jar?v=9d96f643cfd220b75f47c94ea56ebc2a"
+          }
         }
       ]
     }
