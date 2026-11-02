@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "servers": [
+    {
+      "id": "ChunsamVillage-26.3",
+      "name": "춘삼마을",
+      "description": "크리스마스 마을에서 함께 즐겨요 · Minecraft 26.3 · Fabric",
+      "icon": "https://raw.githubusercontent.com/choonsam777/choonsam/main/icon.png",
+      "version": "1.0.0",
+      "address": "christmas1225.p-e.kr:25565",
+      "minecraftVersion": "26.3",
+      "mainServer": true,
+      "autoconnect": true,
+      "javaOptions": {
+        "supported": ">=25.x",
+        "suggestedMajor": 25,
+        "distribution": "TEMURIN"
+      },
+      "modules": [
+        {
+          "id": "net.fabricmc:fabric-loader:0.20.1",
+          "name": "Fabric Loader 0.20.1",
+          "type": "Fabric",
+          "artifact": {
+            "size": 1988880,
+            "MD5": "2e3dc8eebfde75fc8078c931090cd46f",
+            "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.20.1/fabric-loader-0.20.1.jar"
+          },
+          "subModules": [
+            {
+              "id": "fabric-loader-0.20.1-26.3",
+              "name": "Fabric 26.3 profile",
+              "type": "VersionManifest",
+              "artifact": {
+                "size": 2778,
+                "MD5": "26a4f84daf580a7f84f20286a349c70c",
+                "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/fabric/fabric-loader-0.20.1-26.3.json"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
