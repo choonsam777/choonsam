@@ -262,6 +262,17 @@
             "path": "festive-inventory-1.0.40.jar",
             "url": "https://github.com/choonsam777/choonsam/releases/download/chunsam-mods-1/festive-inventory-1.0.40.jar?v=5906edb03daed1c59db28202ee7effb8"
           }
+        },
+        {
+          "id": "choonsam.shaderpacks:complementaryreimagined_r5-9-3:54cd249cd1e9",
+          "name": "ComplementaryReimagined_r5.9.3.zip",
+          "type": "File",
+          "artifact": {
+            "size": 553397,
+            "MD5": "54cd249cd1e95a4e19f0ea2cb4369e71",
+            "path": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
+            "url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip"
+          }
         }
       ]
     }
