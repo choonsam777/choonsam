@@ -100,6 +100,20 @@
           ]
         },
         {
+          "id": "choonsam.mods:christmas-menu-1-0-0:02a4a77d9b34",
+          "name": "christmas-menu-1.0.0.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 6544150,
+            "MD5": "02a4a77d9b34942a49fb7447369eb9e2",
+            "path": "christmas-menu-1.0.0.jar",
+            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/christmas-menu-1.0.0.jar?v=02a4a77d9b34942a49fb7447369eb9e2"
+          }
+        },
+        {
           "id": "choonsam.mods:cloth-config-fabric-26-3-159:ad876761ca3b",
           "name": "cloth-config-fabric-26.3.159.jar",
           "type": "FabricMod",
