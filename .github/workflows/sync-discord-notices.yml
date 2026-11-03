@@ -11,6 +11,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,17 +20,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node scripts/sync-discord-notices.mjs
+      - name: Poll and publish Discord notices
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          polls=3
+          if [ "${{ github.event_name }}" = 'workflow_dispatch' ]; then
+            polls=1
+          fi
+          for ((attempt=1; attempt<=polls; attempt++)); do
+            git pull --rebase origin main
+            node scripts/sync-discord-notices.mjs
+            if ! git diff --quiet -- notices.json; then
+              git add notices.json
+              git commit -m 'Sync Discord announcements'
+              git pull --rebase origin main
+              git push origin main
+            fi
+            if (( attempt < polls )); then
+              sleep 120
+            fi
+          done
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           DISCORD_CHANNEL_ID: '1544674816530063380'
-      - name: Publish notices
-        run: |
-          if ! git diff --quiet -- notices.json; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add notices.json
-            git commit -m 'Sync Discord announcements'
-            git pull --rebase origin main
-            git push origin main
-          fi
