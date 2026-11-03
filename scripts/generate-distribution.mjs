@@ -11,6 +11,20 @@ const names = (await readdir(modsDir)).filter(name => name.toLowerCase().endsWit
 // Shaderpacks are resolved through their publisher's Modrinth listing. The
 // Complementary license does not permit reuploading the ZIP to this repository.
 const shaderpackRefs = JSON.parse(await readFile(new URL('shaderpacks.json', root), 'utf8'))
+const fabricProfile = JSON.parse(await readFile(new URL('fabric/fabric-loader-0.20.1-26.3.json', root), 'utf8'))
+const fabricLibraries = fabricProfile.libraries
+  .filter(lib => lib.name !== 'net.fabricmc:fabric-loader:0.20.1')
+  .map(lib => {
+    const [group, artifact, version] = lib.name.split(':')
+    if (!group || !artifact || !version || !lib.md5 || !lib.size) throw new Error(`Fabric 라이브러리 정보가 불완전합니다: ${lib.name}`)
+    const relative = `${group.replaceAll('.', '/')}/${artifact}/${version}/${artifact}-${version}.jar`
+    return {
+      id: lib.name,
+      name: `${artifact} ${version}`,
+      type: 'Library',
+      artifact: { size: lib.size, MD5: lib.md5, url: new URL(relative, lib.url).href }
+    }
+  })
 const seen = new Set()
 const mods = []
 const shaderpacks = []
@@ -133,7 +147,7 @@ const distribution = {
           MD5: '26a4f84daf580a7f84f20286a349c70c',
           url: `${repo}/fabric/fabric-loader-0.20.1-26.3.json`
         }
-      }]
+      }, ...fabricLibraries]
     }, ...mods, ...shaderpacks]
   }]
 }
