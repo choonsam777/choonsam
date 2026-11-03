@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'mods/**'
+      - 'shaderpacks.json'
       - 'server.json'
       - 'scripts/generate-distribution.mjs'
       - 'fabric/**'
@@ -35,6 +36,7 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add distribution.json
-            git commit -m 'Update launcher mod list'
+            git commit -m 'Update launcher distribution files'
+            git pull --rebase origin main
             git push
           fi
