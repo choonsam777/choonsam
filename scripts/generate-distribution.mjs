@@ -8,8 +8,12 @@ const githubRepo = 'choonsam777/choonsam'
 const server = JSON.parse(await readFile(new URL('server.json', root), 'utf8'))
 const modsDir = new URL('mods/', root)
 const names = (await readdir(modsDir)).filter(name => name.toLowerCase().endsWith('.jar')).sort()
+// Shaderpacks are resolved through their publisher's Modrinth listing. The
+// Complementary license does not permit reuploading the ZIP to this repository.
+const shaderpackRefs = JSON.parse(await readFile(new URL('shaderpacks.json', root), 'utf8'))
 const seen = new Set()
 const mods = []
+const shaderpacks = []
 function addMod(name, size, md5, url) {
   if (!/^[\w.+-]+\.jar$/i.test(name)) throw new Error(`모드 파일 이름에는 영문, 숫자, 점, 밑줄, 하이픈만 사용하세요: ${name}`)
   const slug = name.slice(0, -4).toLowerCase().replace(/[^a-z0-9_-]/g, '-')
@@ -27,6 +31,47 @@ for (const name of names) {
   const bytes = await readFile(new URL(`mods/${name}`, root))
   const md5 = createHash('md5').update(bytes).digest('hex')
   addMod(name, bytes.length, md5, `${repo}/mods/${encodeURIComponent(name)}?v=${md5}`)
+}
+for (const ref of shaderpackRefs) {
+  if (!/^[a-zA-Z0-9_-]+$/.test(ref.project) || !/^[a-zA-Z0-9._-]+$/.test(ref.version)) {
+    throw new Error('쉐이더팩 project/version 형식이 잘못되었습니다.')
+  }
+  const versionResponse = await fetch(`https://api.modrinth.com/v2/project/${ref.project}/version/${ref.version}`, {
+    headers: { 'User-Agent': 'ChunsamVillageLauncher/1.0 (choonsam777/choonsam)' }
+  })
+  if (!versionResponse.ok) throw new Error(`Modrinth 버전 조회 실패: ${ref.project}/${ref.version} (HTTP ${versionResponse.status})`)
+  const version = await versionResponse.json()
+  if (!version.game_versions.includes('26.3')) throw new Error(`Minecraft 26.3과 호환되지 않는 쉐이더팩: ${ref.project}/${ref.version}`)
+  const file = version.files.find(file => file.primary) || version.files[0]
+  if (!file) throw new Error(`다운로드 파일이 없는 쉐이더팩: ${ref.project}/${ref.version}`)
+  const { filename: name, size, url, hashes } = file
+  if (!/^[\w.+-]+\.zip$/i.test(name) || !url.startsWith('https://cdn.modrinth.com/')) {
+    throw new Error(`쉐이더팩 파일 이름 또는 주소가 잘못되었습니다: ${name}`)
+  }
+  const download = await fetch(url, { headers: { 'User-Agent': 'ChunsamVillageLauncher/1.0 (choonsam777/choonsam)' } })
+  if (!download.ok || !download.body) throw new Error(`쉐이더팩 검증 다운로드 실패: ${name} (HTTP ${download.status})`)
+  const md5Hash = createHash('md5')
+  const sha1Hash = createHash('sha1')
+  let actualSize = 0
+  for await (const chunk of download.body) {
+    md5Hash.update(chunk)
+    sha1Hash.update(chunk)
+    actualSize += chunk.length
+  }
+  if (actualSize !== size || sha1Hash.digest('hex') !== hashes.sha1) throw new Error(`쉐이더팩 크기 또는 해시 불일치: ${name}`)
+  const md5 = md5Hash.digest('hex')
+  const slug = name.slice(0, -4).toLowerCase().replace(/[^a-z0-9_-]/g, '-')
+  shaderpacks.push({
+    id: `choonsam.shaderpacks:${slug}:${md5.slice(0, 12)}`,
+    name,
+    type: 'File',
+    artifact: {
+      size,
+      MD5: md5,
+      path: `shaderpacks/${name}`,
+      url
+    }
+  })
 }
 
 // GitHub's repository file limit is 100 MiB. Larger mods live in a dedicated release.
@@ -89,8 +134,8 @@ const distribution = {
           url: `${repo}/fabric/fabric-loader-0.20.1-26.3.json`
         }
       }]
-    }, ...mods]
+    }, ...mods, ...shaderpacks]
   }]
 }
 await writeFile(new URL('distribution.json', root), `${JSON.stringify(distribution, null, 2)}\n`)
-console.log(`배포 목록 생성 완료: 모드 ${mods.length}개`)
+console.log(`배포 목록 생성 완료: 모드 ${mods.length}개, 쉐이더팩 ${shaderpacks.length}개`)
