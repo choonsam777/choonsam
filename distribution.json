@@ -100,21 +100,35 @@
           ]
         },
         {
-          "id": "choonsam.mods:christmas-menu-1-0-0:02a4a77d9b34",
-          "name": "christmas-menu-1.0.0.jar",
+          "id": "kvill.mods:announcement-client-fabric-26-3-text-position-fix:a926027e5581",
+          "name": "announcement-client-fabric-26.3-text-position-fix.jar",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 6544150,
-            "MD5": "02a4a77d9b34942a49fb7447369eb9e2",
-            "path": "christmas-menu-1.0.0.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/christmas-menu-1.0.0.jar?v=02a4a77d9b34942a49fb7447369eb9e2"
+            "size": 1922778,
+            "MD5": "a926027e5581d3bdc1d789fd651746fc",
+            "path": "announcement-client-fabric-26.3-text-position-fix.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/announcement-client-fabric-26.3-text-position-fix.jar?v=a926027e5581d3bdc1d789fd651746fc"
           }
         },
         {
-          "id": "choonsam.mods:cloth-config-fabric-26-3-159:ad876761ca3b",
+          "id": "kvill.mods:christmas-menu-1-0-5-kvill-actualguiscale-fabric26-3:c1fb9c94f14f",
+          "name": "christmas-menu-1.0.5-Kvill-ActualGUIScale-Fabric26.3.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 8009865,
+            "MD5": "c1fb9c94f14fac4e75affd738f969c36",
+            "path": "christmas-menu-1.0.5-Kvill-ActualGUIScale-Fabric26.3.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/christmas-menu-1.0.5-Kvill-ActualGUIScale-Fabric26.3.jar?v=c1fb9c94f14fac4e75affd738f969c36"
+          }
+        },
+        {
+          "id": "kvill.mods:cloth-config-fabric-26-3-159:ad876761ca3b",
           "name": "cloth-config-fabric-26.3.159.jar",
           "type": "FabricMod",
           "required": {
@@ -124,11 +138,11 @@
             "size": 1135009,
             "MD5": "ad876761ca3b7ace3b026bc901dd493e",
             "path": "cloth-config-fabric-26.3.159.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/cloth-config-fabric-26.3.159.jar?v=ad876761ca3b7ace3b026bc901dd493e"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/cloth-config-fabric-26.3.159.jar?v=ad876761ca3b7ace3b026bc901dd493e"
           }
         },
         {
-          "id": "choonsam.mods:fabric-api-0-165-0-26-3:8181fce1be2e",
+          "id": "kvill.mods:fabric-api-0-165-0-26-3:8181fce1be2e",
           "name": "fabric-api-0.165.0+26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -138,11 +152,11 @@
             "size": 1778588,
             "MD5": "8181fce1be2e6ad90f8c09f9a7db1467",
             "path": "fabric-api-0.165.0+26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/fabric-api-0.165.0%2B26.3.jar?v=8181fce1be2e6ad90f8c09f9a7db1467"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/fabric-api-0.165.0%2B26.3.jar?v=8181fce1be2e6ad90f8c09f9a7db1467"
           }
         },
         {
-          "id": "choonsam.mods:ferritecore-9-0-0-fabric:9d96f643cfd2",
+          "id": "kvill.mods:ferritecore-9-0-0-fabric:9d96f643cfd2",
           "name": "ferritecore-9.0.0-fabric.jar",
           "type": "FabricMod",
           "required": {
@@ -152,11 +166,25 @@
             "size": 72677,
             "MD5": "9d96f643cfd220b75f47c94ea56ebc2a",
             "path": "ferritecore-9.0.0-fabric.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/ferritecore-9.0.0-fabric.jar?v=9d96f643cfd220b75f47c94ea56ebc2a"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/ferritecore-9.0.0-fabric.jar?v=9d96f643cfd220b75f47c94ea56ebc2a"
           }
         },
         {
-          "id": "choonsam.mods:guncha-client-1-0-2-mc26-3:5d365734bb76",
+          "id": "kvill.mods:festive-inventory-1-0-80-kvillfishing-fabric26-3:b4748c43f73c",
+          "name": "festive-inventory-1.0.80-KvillFishing-Fabric26.3.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 133715095,
+            "MD5": "b4748c43f73cbfaf6195ae89bced8e16",
+            "path": "festive-inventory-1.0.80-KvillFishing-Fabric26.3.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/festive-inventory-1.0.80-KvillFishing-Fabric26.3.jar?v=b4748c43f73cbfaf6195ae89bced8e16"
+          }
+        },
+        {
+          "id": "kvill.mods:guncha-client-1-0-2-mc26-3:5d365734bb76",
           "name": "guncha-client-1.0.2+mc26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -166,11 +194,11 @@
             "size": 3475264,
             "MD5": "5d365734bb765e6d5f78f241842066bf",
             "path": "guncha-client-1.0.2+mc26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/guncha-client-1.0.2%2Bmc26.3.jar?v=5d365734bb765e6d5f78f241842066bf"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/guncha-client-1.0.2%2Bmc26.3.jar?v=5d365734bb765e6d5f78f241842066bf"
           }
         },
         {
-          "id": "choonsam.mods:hangul-1-3-0-beta-11-fabric:9a7db0defd29",
+          "id": "kvill.mods:hangul-1-3-0-beta-11-fabric:9a7db0defd29",
           "name": "hangul-1.3.0-beta.11-fabric.jar",
           "type": "FabricMod",
           "required": {
@@ -180,11 +208,11 @@
             "size": 82891,
             "MD5": "9a7db0defd297c7f25c3c363025ae5cf",
             "path": "hangul-1.3.0-beta.11-fabric.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/hangul-1.3.0-beta.11-fabric.jar?v=9a7db0defd297c7f25c3c363025ae5cf"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/hangul-1.3.0-beta.11-fabric.jar?v=9a7db0defd297c7f25c3c363025ae5cf"
           }
         },
         {
-          "id": "choonsam.mods:iris-fabric-1-11-7-mc26-3:6e390346ffb4",
+          "id": "kvill.mods:iris-fabric-1-11-7-mc26-3:6e390346ffb4",
           "name": "iris-fabric-1.11.7+mc26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -194,11 +222,53 @@
             "size": 2850938,
             "MD5": "6e390346ffb4f04e670d7f0ffc04887f",
             "path": "iris-fabric-1.11.7+mc26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/iris-fabric-1.11.7%2Bmc26.3.jar?v=6e390346ffb4f04e670d7f0ffc04887f"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/iris-fabric-1.11.7%2Bmc26.3.jar?v=6e390346ffb4f04e670d7f0ffc04887f"
           }
         },
         {
-          "id": "choonsam.mods:lithium-fabric-0-26-2-mc26-3:4bb4ada83b50",
+          "id": "kvill.mods:journeymap-fabric-26-3-6-0-10:f36492b1e6ab",
+          "name": "journeymap-fabric-26.3-6.0.10.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 4384661,
+            "MD5": "f36492b1e6ab259e05ebd27af890e070",
+            "path": "journeymap-fabric-26.3-6.0.10.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/journeymap-fabric-26.3-6.0.10.jar?v=f36492b1e6ab259e05ebd27af890e070"
+          }
+        },
+        {
+          "id": "kvill.mods:journeymap-webmap-fabric-26-3-1-0-13:e8618d635bba",
+          "name": "journeymap-webmap-fabric-26.3-1.0.13.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 7176403,
+            "MD5": "e8618d635bbaf042753798a91d74fadc",
+            "path": "journeymap-webmap-fabric-26.3-1.0.13.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/journeymap-webmap-fabric-26.3-1.0.13.jar?v=e8618d635bbaf042753798a91d74fadc"
+          }
+        },
+        {
+          "id": "kvill.mods:kvillbgm-fabric-26-3-1-0-11-sliderpositionfix_test:8346a57f7d54",
+          "name": "KvillBGM-Fabric-26.3-1.0.11-SliderPositionFix_TEST.jar",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1478311,
+            "MD5": "8346a57f7d5478e1de8ed607d275d379",
+            "path": "KvillBGM-Fabric-26.3-1.0.11-SliderPositionFix_TEST.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/KvillBGM-Fabric-26.3-1.0.11-SliderPositionFix_TEST.jar?v=8346a57f7d5478e1de8ed607d275d379"
+          }
+        },
+        {
+          "id": "kvill.mods:lithium-fabric-0-26-2-mc26-3:4bb4ada83b50",
           "name": "lithium-fabric-0.26.2+mc26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -208,11 +278,11 @@
             "size": 914543,
             "MD5": "4bb4ada83b50bb026550b20aabcad32c",
             "path": "lithium-fabric-0.26.2+mc26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/lithium-fabric-0.26.2%2Bmc26.3.jar?v=4bb4ada83b50bb026550b20aabcad32c"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/lithium-fabric-0.26.2%2Bmc26.3.jar?v=4bb4ada83b50bb026550b20aabcad32c"
           }
         },
         {
-          "id": "choonsam.mods:modmenu-21-0-0:d2b9c21cb592",
+          "id": "kvill.mods:modmenu-21-0-0:d2b9c21cb592",
           "name": "modmenu-21.0.0.jar",
           "type": "FabricMod",
           "required": {
@@ -222,25 +292,25 @@
             "size": 856779,
             "MD5": "d2b9c21cb592b8723d3d443589aabc8a",
             "path": "modmenu-21.0.0.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/modmenu-21.0.0.jar?v=d2b9c21cb592b8723d3d443589aabc8a"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/modmenu-21.0.0.jar?v=d2b9c21cb592b8723d3d443589aabc8a"
           }
         },
         {
-          "id": "choonsam.mods:nickname-npc-client-1-0-2:acc5fea7a8a4",
-          "name": "nickname-npc-client-1.0.2.jar",
+          "id": "kvill.mods:nickname-npc-client-1-0-14-npcshopui-fabric26-3:34898c32bf6e",
+          "name": "nickname-npc-client-1.0.14-NpcShopUI-Fabric26.3.jar",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 21015846,
-            "MD5": "acc5fea7a8a494c37f8876b505d70ddf",
-            "path": "nickname-npc-client-1.0.2.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/nickname-npc-client-1.0.2.jar?v=acc5fea7a8a494c37f8876b505d70ddf"
+            "size": 31979199,
+            "MD5": "34898c32bf6ef98cc18476acc0bd8df9",
+            "path": "nickname-npc-client-1.0.14-NpcShopUI-Fabric26.3.jar",
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/nickname-npc-client-1.0.14-NpcShopUI-Fabric26.3.jar?v=34898c32bf6ef98cc18476acc0bd8df9"
           }
         },
         {
-          "id": "choonsam.mods:placeholder-api-3-2-0-26-3:ca2d9a353e20",
+          "id": "kvill.mods:placeholder-api-3-2-0-26-3:ca2d9a353e20",
           "name": "placeholder-api-3.2.0+26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -250,11 +320,11 @@
             "size": 254959,
             "MD5": "ca2d9a353e202ce5c11177fb4a7668b1",
             "path": "placeholder-api-3.2.0+26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/placeholder-api-3.2.0%2B26.3.jar?v=ca2d9a353e202ce5c11177fb4a7668b1"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/placeholder-api-3.2.0%2B26.3.jar?v=ca2d9a353e202ce5c11177fb4a7668b1"
           }
         },
         {
-          "id": "choonsam.mods:sodium-extra-fabric-0-9-4-mc26-3:304bfa58e60d",
+          "id": "kvill.mods:sodium-extra-fabric-0-9-4-mc26-3:304bfa58e60d",
           "name": "sodium-extra-fabric-0.9.4+mc26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -264,11 +334,11 @@
             "size": 465553,
             "MD5": "304bfa58e60d4bdd6a0240e2fa940ef8",
             "path": "sodium-extra-fabric-0.9.4+mc26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/sodium-extra-fabric-0.9.4%2Bmc26.3.jar?v=304bfa58e60d4bdd6a0240e2fa940ef8"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/sodium-extra-fabric-0.9.4%2Bmc26.3.jar?v=304bfa58e60d4bdd6a0240e2fa940ef8"
           }
         },
         {
-          "id": "choonsam.mods:sodium-fabric-0-9-3-beta-1-mc26-3:acc6ae644c0a",
+          "id": "kvill.mods:sodium-fabric-0-9-3-beta-1-mc26-3:acc6ae644c0a",
           "name": "sodium-fabric-0.9.3-beta.1+mc26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -278,11 +348,11 @@
             "size": 1912496,
             "MD5": "acc6ae644c0a71953832d35d9fb475e6",
             "path": "sodium-fabric-0.9.3-beta.1+mc26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/sodium-fabric-0.9.3-beta.1%2Bmc26.3.jar?v=acc6ae644c0a71953832d35d9fb475e6"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/sodium-fabric-0.9.3-beta.1%2Bmc26.3.jar?v=acc6ae644c0a71953832d35d9fb475e6"
           }
         },
         {
-          "id": "choonsam.mods:tabbedchat-fabric-1-4-1-mc26-3:4e4c8a8fc1be",
+          "id": "kvill.mods:tabbedchat-fabric-1-4-1-mc26-3:4e4c8a8fc1be",
           "name": "tabbedchat-fabric-1.4.1+mc26.3.jar",
           "type": "FabricMod",
           "required": {
@@ -292,11 +362,11 @@
             "size": 53712,
             "MD5": "4e4c8a8fc1be418180043310b1eac1dc",
             "path": "tabbedchat-fabric-1.4.1+mc26.3.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/tabbedchat-fabric-1.4.1%2Bmc26.3.jar?v=4e4c8a8fc1be418180043310b1eac1dc"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/tabbedchat-fabric-1.4.1%2Bmc26.3.jar?v=4e4c8a8fc1be418180043310b1eac1dc"
           }
         },
         {
-          "id": "choonsam.mods:whisper-client-1-0-0:f01a280099f8",
+          "id": "kvill.mods:whisper-client-1-0-0:f01a280099f8",
           "name": "whisper-client-1.0.0.jar",
           "type": "FabricMod",
           "required": {
@@ -306,25 +376,11 @@
             "size": 27624,
             "MD5": "f01a280099f856ac333a0a863425f01f",
             "path": "whisper-client-1.0.0.jar",
-            "url": "https://raw.githubusercontent.com/choonsam777/choonsam/main/mods/whisper-client-1.0.0.jar?v=f01a280099f856ac333a0a863425f01f"
+            "url": "https://github.com/choonsam777/choonsam/releases/download/kvill-mods-2026-11-15/whisper-client-1.0.0.jar?v=f01a280099f856ac333a0a863425f01f"
           }
         },
         {
-          "id": "choonsam.mods:festive-inventory-1-0-40:5906edb03dae",
-          "name": "festive-inventory-1.0.40.jar",
-          "type": "FabricMod",
-          "required": {
-            "value": true
-          },
-          "artifact": {
-            "size": 113016511,
-            "MD5": "5906edb03daed1c59db28202ee7effb8",
-            "path": "festive-inventory-1.0.40.jar",
-            "url": "https://github.com/choonsam777/choonsam/releases/download/chunsam-mods-1/festive-inventory-1.0.40.jar?v=5906edb03daed1c59db28202ee7effb8"
-          }
-        },
-        {
-          "id": "choonsam.shaderpacks:complementaryreimagined_r5-9-3:54cd249cd1e9",
+          "id": "kvill.shaderpacks:complementaryreimagined_r5-9-3:54cd249cd1e9",
           "name": "ComplementaryReimagined_r5.9.3.zip",
           "type": "File",
           "artifact": {
@@ -335,7 +391,7 @@
           }
         },
         {
-          "id": "choonsam.shaderpacks:complementaryunbound_r5-9-3:e9c0e174f431",
+          "id": "kvill.shaderpacks:complementaryunbound_r5-9-3:e9c0e174f431",
           "name": "ComplementaryUnbound_r5.9.3.zip",
           "type": "File",
           "artifact": {
