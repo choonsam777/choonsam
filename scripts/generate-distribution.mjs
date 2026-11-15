@@ -1,13 +1,10 @@
 import { createHash } from 'node:crypto'
-import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { readFile, writeFile } from 'node:fs/promises'
 
 const root = new URL('../', import.meta.url)
 const repo = 'https://raw.githubusercontent.com/choonsam777/choonsam/main'
 const githubRepo = 'choonsam777/choonsam'
 const server = JSON.parse(await readFile(new URL('server.json', root), 'utf8'))
-const modsDir = new URL('mods/', root)
-const names = (await readdir(modsDir)).filter(name => name.toLowerCase().endsWith('.jar')).sort()
 // Shaderpacks are resolved through their publisher's Modrinth listing. The
 // Complementary license does not permit reuploading the ZIP to this repository.
 const shaderpackRefs = JSON.parse(await readFile(new URL('shaderpacks.json', root), 'utf8'))
@@ -40,11 +37,6 @@ function addMod(name, size, md5, url) {
     required: { value: true },
     artifact: { size, MD5: md5, path: name, url }
   })
-}
-for (const name of names) {
-  const bytes = await readFile(new URL(`mods/${name}`, root))
-  const md5 = createHash('md5').update(bytes).digest('hex')
-  addMod(name, bytes.length, md5, `${repo}/mods/${encodeURIComponent(name)}?v=${md5}`)
 }
 for (const ref of shaderpackRefs) {
   if (!/^[a-zA-Z0-9_-]+$/.test(ref.project) || !/^[a-zA-Z0-9._-]+$/.test(ref.version)) {
