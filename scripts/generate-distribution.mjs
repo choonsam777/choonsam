@@ -34,7 +34,7 @@ function addMod(name, size, md5, url) {
   if (seen.has(slug)) throw new Error(`모드 이름이 중복됩니다: ${name}`)
   seen.add(slug)
   mods.push({
-    id: `choonsam.mods:${slug}:${md5.slice(0, 12)}`,
+    id: `kvill.mods:${slug}:${md5.slice(0, 12)}`,
     name,
     type: 'FabricMod',
     required: { value: true },
@@ -51,7 +51,7 @@ for (const ref of shaderpackRefs) {
     throw new Error('쉐이더팩 project/version 형식이 잘못되었습니다.')
   }
   const versionResponse = await fetch(`https://api.modrinth.com/v2/project/${ref.project}/version/${ref.version}`, {
-    headers: { 'User-Agent': 'ChunsamVillageLauncher/1.0 (choonsam777/choonsam)' }
+    headers: { 'User-Agent': 'KvillServerLauncher/1.0 (choonsam777/choonsam)' }
   })
   if (!versionResponse.ok) throw new Error(`Modrinth 버전 조회 실패: ${ref.project}/${ref.version} (HTTP ${versionResponse.status})`)
   const version = await versionResponse.json()
@@ -62,7 +62,7 @@ for (const ref of shaderpackRefs) {
   if (!/^[\w.+-]+\.zip$/i.test(name) || !url.startsWith('https://cdn.modrinth.com/')) {
     throw new Error(`쉐이더팩 파일 이름 또는 주소가 잘못되었습니다: ${name}`)
   }
-  const download = await fetch(url, { headers: { 'User-Agent': 'ChunsamVillageLauncher/1.0 (choonsam777/choonsam)' } })
+  const download = await fetch(url, { headers: { 'User-Agent': 'KvillServerLauncher/1.0 (choonsam777/choonsam)' } })
   if (!download.ok || !download.body) throw new Error(`쉐이더팩 검증 다운로드 실패: ${name} (HTTP ${download.status})`)
   const md5Hash = createHash('md5')
   const sha1Hash = createHash('sha1')
@@ -76,7 +76,7 @@ for (const ref of shaderpackRefs) {
   const md5 = md5Hash.digest('hex')
   const slug = name.slice(0, -4).toLowerCase().replace(/[^a-z0-9_-]/g, '-')
   shaderpacks.push({
-    id: `choonsam.shaderpacks:${slug}:${md5.slice(0, 12)}`,
+    id: `kvill.shaderpacks:${slug}:${md5.slice(0, 12)}`,
     name,
     type: 'File',
     artifact: {
@@ -91,18 +91,21 @@ for (const ref of shaderpackRefs) {
 // GitHub's repository file limit is 100 MiB. Larger mods live in a dedicated release.
 const headers = {
   Accept: 'application/vnd.github+json',
-  'User-Agent': 'ChunsamVillageLauncher',
+  'User-Agent': 'KvillServerLauncher',
   ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {})
 }
 const releasesResponse = await fetch(`https://api.github.com/repos/${githubRepo}/releases?per_page=100`, { headers })
 if (!releasesResponse.ok) throw new Error(`GitHub 릴리스 조회 실패: HTTP ${releasesResponse.status}`)
 const releases = await releasesResponse.json()
 const largeRelease = releases
-  .filter(release => !release.draft && release.tag_name.startsWith('chunsam-mods-'))
+  .filter(release => !release.draft && release.tag_name.startsWith('kvill-mods-'))
   .sort((a, b) => Date.parse(b.published_at) - Date.parse(a.published_at))[0]
+if (!largeRelease || !largeRelease.assets.some(asset => asset.name.toLowerCase().endsWith('.jar'))) {
+  throw new Error('게시된 크빌서버 모드 릴리스를 찾지 못했습니다. 전체 모드 JAR를 릴리스에 올려 주세요.')
+}
 if (largeRelease) {
   for (const asset of largeRelease.assets.filter(asset => asset.name.toLowerCase().endsWith('.jar')).sort((a, b) => a.name.localeCompare(b.name))) {
-    const response = await fetch(asset.browser_download_url, { headers: { 'User-Agent': 'ChunsamVillageLauncher' } })
+    const response = await fetch(asset.browser_download_url, { headers: { 'User-Agent': 'KvillServerLauncher' } })
     if (!response.ok || !response.body) throw new Error(`큰 모드 다운로드 실패: ${asset.name} (HTTP ${response.status})`)
     const hash = createHash('md5')
     let size = 0
