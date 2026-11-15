@@ -3,7 +3,7 @@
   "servers": [
     {
       "id": "ChunsamVillage-26.3",
-      "name": "춘삼마을",
+      "name": "크빌서버",
       "description": "크리스마스 마을에서 함께 즐겨요 · Minecraft 26.3 · Fabric",
       "icon": "https://raw.githubusercontent.com/choonsam777/choonsam/main/icon.png",
       "version": "1.0.0",
@@ -332,6 +332,17 @@
             "MD5": "54cd249cd1e95a4e19f0ea2cb4369e71",
             "path": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
             "url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip"
+          }
+        },
+        {
+          "id": "choonsam.shaderpacks:complementaryunbound_r5-9-3:e9c0e174f431",
+          "name": "ComplementaryUnbound_r5.9.3.zip",
+          "type": "File",
+          "artifact": {
+            "size": 553400,
+            "MD5": "e9c0e174f43125d45b192ef684f5d4d4",
+            "path": "shaderpacks/ComplementaryUnbound_r5.9.3.zip",
+            "url": "https://cdn.modrinth.com/data/R6NEzAwj/versions/B1kyfoUZ/ComplementaryUnbound_r5.9.3.zip"
           }
         }
       ]
